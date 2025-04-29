@@ -2,12 +2,7 @@
 {
     public static class Diamond
     {
-        public static string Generate()
-        {
-            return "A\n";
-        }
-
-        public static string Generate(char input, char spacer = ' ')
+        public static string Generate(char input = 'A', char spacer = ' ')
         {
             if (input < 'A' || input > 'Z')
                 throw new ArgumentException("Invalid character");

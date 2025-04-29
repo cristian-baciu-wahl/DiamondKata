@@ -29,5 +29,17 @@ namespace DiamondKataTests
         {
             Assert.Throws<ArgumentException>(() => Diamond.Generate(input));
         }
+
+        [Fact]
+        public void Generate_WithB_ReturnsDiamond()
+        {
+            var expected =
+                " A \n" +
+                "B B\n" +
+                " A \n";
+
+            var result = Diamond.Generate('B');
+            Assert.Equal(expected, result);
+        }
     }
 }

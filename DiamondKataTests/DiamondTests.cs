@@ -11,5 +11,13 @@ namespace DiamondKataTests
 
             Assert.Equal("A\n", result);
         }
+
+        [Fact]
+        public void Generate_WithA_ReturnsSingleLineA()
+        {
+            var result = Diamond.Generate('A');
+
+            Assert.Equal("A\n", result);
+        }
     }
 }

@@ -43,7 +43,7 @@ namespace DiamondKataTests
         }
 
         [Fact]
-        public void Generate_WithD_ReturnsExpectedDiamond()
+        public void Generate_WithD_ReturnsDiamondWithDefaultSpacing()
         {
             var expected =
                 "   A   \n" +
@@ -58,5 +58,20 @@ namespace DiamondKataTests
             Assert.Equal(expected, result);
         }
 
+        [Fact]
+        public void Generate_WithDAndCustomSpacer_ReturnsDiamondWithCustomSpacer()
+        {
+            var expected =
+                "___A___\n" +
+                "__B_B__\n" +
+                "_C___C_\n" +
+                "D_____D\n" +
+                "_C___C_\n" +
+                "__B_B__\n" +
+                "___A___\n";
+
+            var result = Diamond.Generate('D', '_');
+            Assert.Equal(expected, result);
+        }
     }
 }

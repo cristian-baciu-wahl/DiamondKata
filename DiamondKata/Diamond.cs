@@ -7,7 +7,7 @@
             return "A\n";
         }
 
-        public static string Generate(char input)
+        public static string Generate(char input, char spacer = ' ')
         {
             if (input < 'A' || input > 'Z')
                 throw new ArgumentException("Invalid character");
@@ -21,25 +21,25 @@
 
             // Build top + middle
             for (int i = 0; i <= size; i++)
-                lines.Add(GenerateLine(i, size));
+                lines.Add(GenerateLine(i, size, spacer));
 
             // Build bottom half 
             for (int i = size - 1; i >= 0; i--)
-                lines.Add(GenerateLine(i, size));
+                lines.Add(GenerateLine(i, size, spacer));
 
             // Append everything
             return string.Join("\n", lines) + "\n";
         }
 
-        private static string GenerateLine(int i, int size)
+        private static string GenerateLine(int i, int size, char spacer)
         {
             char letter = (char)('A' + i);
 
             int outerSpaces = size - i;
             int innerSpaces = i == 0 ? 0 : i * 2 - 1;
 
-            var outer = new string(' ', outerSpaces);
-            var inner = new string(' ', innerSpaces);
+            var outer = new string(spacer, outerSpaces);
+            var inner = new string(spacer, innerSpaces);
 
             return i == 0
                 ? outer + letter + outer

@@ -31,7 +31,7 @@ namespace DiamondKataTests
         }
 
         [Fact]
-        public void Generate_WithB_ReturnsDiamond()
+        public void Generate_WithB_ReturnsExpectedDiamond()
         {
             var expected =
                 " A \n" +
@@ -41,5 +41,22 @@ namespace DiamondKataTests
             var result = Diamond.Generate('B');
             Assert.Equal(expected, result);
         }
+
+        [Fact]
+        public void Generate_WithD_ReturnsExpectedDiamond()
+        {
+            var expected =
+                "   A   \n" +
+                "  B B  \n" +
+                " C   C \n" +
+                "D     D\n" +
+                " C   C \n" +
+                "  B B  \n" +
+                "   A   \n";
+
+            var result = Diamond.Generate('D');
+            Assert.Equal(expected, result);
+        }
+
     }
 }

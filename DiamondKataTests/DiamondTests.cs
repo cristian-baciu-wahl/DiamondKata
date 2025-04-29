@@ -19,5 +19,15 @@ namespace DiamondKataTests
 
             Assert.Equal("A\n", result);
         }
+
+        [Theory]
+        [InlineData('1')]
+        [InlineData('a')]
+        [InlineData('*')]
+        [InlineData(' ')]
+        public void Generate_WithInvalidChar_ThrowsArgumentException(char input)
+        {
+            Assert.Throws<ArgumentException>(() => Diamond.Generate(input));
+        }
     }
 }
